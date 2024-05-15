@@ -1,14 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FakeStoreContext } from "../App3";
 
 const Product = () => {
+
+
+
   const context = useContext(FakeStoreContext);
+  
   // const context =  {products,setproducts,cart,setCart,cartValue,setcartValue}
+
+  const [input, setinput] = useState("")
+
+  const filteredProducts = context.products.filter((item) =>{
+    return item.title.toLowerCase().includes(input.toLowerCase())
+  })
+
   return (
     <>
       <h2>All Products </h2>
+      <input type="text" value={input} onChange={(e)=>setinput(e.target.value)} placeholder="search products..." />
       <div>
-        {context.products.map((item, index) => {
+        {filteredProducts.map((item, index) => {
           return (
             <div key={index}>
               <h1>{item.title}</h1>
