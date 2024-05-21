@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomePage from './CRUD/HomePage'
 import Users from './CRUD/Users';
 import './App.css'
+import CreateUser from './CRUD/CreateUser';
+import UserDetails from './CRUD/UserDetails';
+import EditUser from './CRUD/EditUser';
 
 const App4 = () => {
   return (
@@ -17,6 +20,9 @@ const App4 = () => {
     <Routes>
         <Route path='/' element={<HomePage/>} />
         <Route path='/users' element={<Users/>} />
+        <Route path='/users/:id' element={<UserDetails/>} />
+        <Route path='/create-user' element={<CreateUser/>} />
+        <Route path='/edit-user/:id' element={<EditUser/>} />
     </Routes>
     </BrowserRouter>
     </>
