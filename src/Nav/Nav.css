@@ -1,0 +1,64 @@
+.navbar{
+    background-color: black;
+    color: whitesmoke;
+    padding: 10px;
+}
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.nav-logo{
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.navbar-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-links a{
+    color: red;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.navbar-toggle{
+    cursor: pointer;
+    display: none;
+}
+
+/* media qwery */
+
+@media screen and (max-width:780px) {
+    .navbar-links{
+        display: none;
+        flex-direction: column;
+        justify-content: start;
+        position: absolute;
+        top: 58px;
+        right: 0;
+        width:100%;
+        background-color: rgba(0, 0, 0, 0.555);
+        padding: 10px 0;
+        text-align: center;
+    }  
+    .navbar-links.active{
+        display: flex;
+    }
+    .navbar-links a{
+        background-color: red;
+        color: black;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 20px;
+    }
+    .navbar-toggle{
+        display: block;
+        font-size: 25px;
+        color: red;
+    } 
+}

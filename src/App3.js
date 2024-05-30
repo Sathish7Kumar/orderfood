@@ -41,7 +41,7 @@ const App3 = () => {
   return (
     <FakeStoreContext.Provider value={{products,setproducts,cart,setCart,cartValue,setcartValue}}>
     <BrowserRouter>
-    <Navbar/>
+    {/* <Navbar/> */}
     <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/products' element={<Product/>} />
