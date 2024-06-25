@@ -15,10 +15,10 @@ root.render(
     //  <App />
     // <App2/>
 
-    // <App4/>
+    <App4/>
     // <App5/>
     // <App6/>
-    <App7/>
+    // <App7/>
     
 );
 

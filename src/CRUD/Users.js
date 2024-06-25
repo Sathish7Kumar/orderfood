@@ -8,7 +8,7 @@ const Users = () => {
     const nav  = useNavigate()
     const getUserRespose = async  () => {
         try {
-            const response = await axios.get("https://664afb2ea300e8795d43b586.mockapi.io/userdetails/v1/users")
+            const response = await axios.get("https://mobileproducts.onrender.com/products")
             setusers(response.data);
         } catch (error) {
             console.log(error);
@@ -28,8 +28,8 @@ const Users = () => {
     }
 
     const handleDelete = (id,name) =>{
-        axios.delete("https://664afb2ea300e8795d43b586.mockapi.io/userdetails/v1/users/"+id)
-        alert(`user: ${name} Deleted Successfully`)
+        axios.delete("https://mobileproducts.onrender.com/delete/"+id)
+        alert(`Mobile: ${name} Deleted Successfully`)
         getUserRespose()
     }
 
@@ -41,10 +41,12 @@ const Users = () => {
         <table>
             <thead>
                 <tr>
-                    <th>USER ID</th>
-                    <th>USERNAME</th>
-                    <th>USER EMAIL-ID</th>
-                    <th>USER MOBILE-NUMBER</th>
+                    <th>Mobile Name</th>
+                    <th>Image URL</th>
+                    <th>Price</th>
+                    <th>Specification</th>
+                    <th>Rating</th>
+                    <th>Count</th>
                     <th>Options</th>
                 </tr>
             </thead>
@@ -52,14 +54,16 @@ const Users = () => {
                     {users.map((userDetails,index)=>{
                         return(
                             <tr key={index}>
-                            <td>{userDetails.id}</td>
-                            <td>{userDetails.userName}</td>
-                            <td>{userDetails.emailID}</td>
-                            <td>{userDetails.mobileNumber}</td>
+                            <td>{userDetails.mobilename}</td>
+                            <td>{userDetails.image}</td>
+                            <td>{userDetails.price}</td>
+                            <td>{userDetails.desc}</td>
+                            <td>{userDetails.rating.rate}</td>
+                            <td>{userDetails.rating.count}</td>
                             <td>
-                                <button onClick={()=>handleView(userDetails.id)}>View</button>
-                                <button onClick={()=>handleEdit(userDetails.id)}>Edit</button>
-                                <button onClick={()=>handleDelete(userDetails.id,userDetails.userName)}>Delete</button>
+                                <button onClick={()=>handleView(userDetails._id)}>View</button>
+                                <button onClick={()=>handleEdit(userDetails._id)}>Edit</button>
+                                <button onClick={()=>handleDelete(userDetails._id,userDetails.mobilename)}>Delete</button>
                             </td>
                             </tr>
                         )
